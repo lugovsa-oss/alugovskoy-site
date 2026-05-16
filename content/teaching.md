@@ -1,0 +1,7 @@
+My teaching spans the core curriculum of materials science and electrochemistry at the undergraduate level, covering physical metallurgy, materials structure, corrosion and protection, surface coatings, and nanotechnology. Laboratory instruction has been a consistent part of this work — from general chemistry to advanced characterization techniques including SEM and EDS. I have been recognized as Lecturer of the Year by the university rector’s committee on six occasions (2010, 2013, 2014, 2017, 2018, 2019), with consistent above-average student evaluations throughout my time at Ariel University.
+
+## Research supervision
+I have supervised fifteen graduate students to completion — ten at the M.Sc. level and five at the Ph.D. level. Two students are currently active: Lejalem Abeble Dagnaw (Ph.D.) and Getachew Gebremariam Berhe (M.Sc.).
+
+## Educational materials
+Published laboratory manuals cover introductory materials science and corrosion (2009–2015, co-authored with A. Kossenko). In 2026 I published Electrochemical Impedance for Electrochemists: A Practical Introduction (Zenodo, DOI: 10.5281/zenodo.19151752) — a self-contained text aimed at practitioners rather than theorists. A Hebrew-language course summary in materials science is currently in preparation.

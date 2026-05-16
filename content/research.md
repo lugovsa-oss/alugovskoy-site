@@ -1,0 +1,7 @@
+-
+My research sits at the intersection of electrochemical surface engineering and corrosion science.
+## Anodic surface treatment of metals and alloys
+Plasma Electrolytic Oxidation (PEO) and conventional anodizing produce structurally and functionally distinct oxide layers on valve metals — aluminum, magnesium, titanium — and on steels. My work addresses the relationship between process parameters, coating microstructure, and functional performance. A central question is how PEO-derived coatings compare to classical anodic treatments in terms of corrosion resistance, tribological behavior, and practical applicability in industrial contexts relevant to Israeli manufacturing.
+
+## Corrosion studies
+Corrosion of magnesium alloys is a persistent challenge that limits their wider adoption despite attractive mechanical properties. I combine electrochemical and non-electrochemical methods to resolve the mechanisms underlying Mg corrosion, including the anomalous hydrogen evolution behavior characteristic of these alloys. More recently, this work has expanded to titanium alloys and steels, where anodic treatment serves both as a surface modification strategy and as a baseline for comparative corrosion characterization. Earlier work, carried out in collaboration with Dr. S. Golan, examined corrosion and tribo-corrosion of shape-memory Ni-Ti alloys (Nitinol) in physiological environments relevant to biomedical implant applications.
