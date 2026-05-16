@@ -81,7 +81,7 @@ bash npm install
 
 ## Step 6 — Run Quartz locally
 
-bash npx quartz build --serve 
+bash npx quartz --build --serve 
 
 Quartz usually starts at:
 
