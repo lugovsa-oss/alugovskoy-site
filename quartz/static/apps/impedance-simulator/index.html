@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Impedance Spectrum Simulator</title>
+  <link rel="stylesheet" href="app.css">
+</head>
+<body>
+  <main id="ais-impedance-app" class="ais-impedance-app">
+    <h1>Impedance Spectrum Simulator</h1>
+
+    <section class="ais-toolbar" aria-label="Simulation controls">
+      <div class="ais-field">
+        <label for="ais-circuit">Circuit</label>
+        <input id="ais-circuit" type="text" spellcheck="false" value="R0-(R1||C1)-(R2||C2)">
+        <small>Syntax: series <code>-</code>, parallel <code>||</code>, parentheses. Elements: R, C, L, Q, W, G.</small>
+      </div>
+
+      <div class="ais-field">
+        <label for="ais-preset">Preset</label>
+        <select id="ais-preset">
+          <option value="two_semicircles">Two semicircles</option>
+          <option value="depressed_arc">Depressed arc</option>
+          <option value="warburg_tail">Warburg tail</option>
+          <option value="capacitive_limit">Capacitive limit</option>
+          <option value="inductive_loop">Inductive loop</option>
+        </select>
+      </div>
+
+      <div class="ais-buttons">
+        <button id="ais-load-preset" type="button">Load preset</button>
+        <button id="ais-run" type="button">Simulate</button>
+        <button id="ais-reset" type="button">Reset defaults</button>
+        <button id="ais-export" type="button">Export PNG</button>
+      </div>
+    </section>
+
+    <section class="ais-main">
+      <aside class="ais-side" aria-label="Parameters and model summary">
+        <div class="ais-panel">
+          <div class="ais-panel-title">Parameters</div>
+          <div id="ais-params"></div>
+        </div>
+
+        <div class="ais-panel">
+          <div class="ais-panel-title">Current model</div>
+          <div id="ais-model-summary"></div>
+        </div>
+
+        <div id="ais-status" class="ais-status" aria-live="polite"></div>
+      </aside>
+
+      <section class="ais-plots" aria-label="Plots">
+        <canvas id="ais-nyquist" width="900" height="420" aria-label="Nyquist plot"></canvas>
+        <canvas id="ais-bode-mag" width="900" height="320" aria-label="Bode magnitude plot"></canvas>
+        <canvas id="ais-bode-phase" width="900" height="320" aria-label="Bode phase plot"></canvas>
+      </section>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

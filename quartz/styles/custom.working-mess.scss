@@ -1,0 +1,878 @@
+@use "./base.scss";
+
+// put your custom CSS here!
+
+.he {
+  direction: rtl;
+  text-align: right;
+  unicode-bidi: plaintext;
+}
+
+.en {
+  direction: ltr;
+  text-align: left;
+  unicode-bidi: plaintext;
+}
+
+.mixed {
+  unicode-bidi: plaintext;
+}
+
+
+[dir="rtl"] {
+  direction: rtl;
+  text-align: right;
+}
+
+[dir="ltr"] {
+  direction: ltr;
+  text-align: left;
+}
+:root {
+  --al-bg: #f7f3ec;
+  --al-paper: #fbfaf7;
+  --al-text: #1e1b18;
+  --al-muted: #6f6962;
+  --al-red: #a32020;
+  --al-gold: #b08a2e;
+  --al-line: #ddd5ca;
+}
+
+/* General atmosphere */
+body {
+  background: var(--al-bg) !important;
+  color: var(--al-text);
+  font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+}
+
+/* Remove Quartz-brand feeling */
+.page-title a {
+  color: var(--al-red) !important;
+  font-family: Georgia, serif;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+.page-title a::before {
+  content: "al-chemist.info";
+}
+
+.page-title a {
+  font-size: 0;
+}
+
+.page-title a::before {
+  font-size: 1.45rem;
+}
+
+/* Content typography */
+article {
+  max-width: 760px;
+  margin-inline: auto;
+  background: transparent;
+}
+
+article h1 {
+  font-size: 3rem;
+  line-height: 1.08;
+  margin-top: 2rem;
+  margin-bottom: 2.2rem;
+  font-weight: 700;
+  color: var(--al-text);
+}
+
+article h2 {
+  margin-top: 2.2rem;
+  color: var(--al-text);
+}
+
+article p,
+article li {
+  font-size: 1.18rem;
+  line-height: 1.9;
+}
+
+/* Links */
+a {
+  color: var(--al-red);
+  text-decoration-thickness: 0.06em;
+  text-underline-offset: 0.18em;
+}
+
+a:hover {
+  color: #7a1414;
+}
+
+/* Layout: make it less dashboard-like */
+.page {
+  max-width: 1180px;
+  margin: 0 auto;
+}
+
+.center {
+  display: block !important;
+width: 100% !important;
+max-width: 980px !important;
+min-width: 0 !important;
+margin: 0 auto !important;
+padding: 3rem 5rem !important;
+box-sizing: border-box !important;
+}
+
+/* Soften side panels */
+.left,
+.right {
+  color: var(--al-muted);
+}
+
+.left .page-title,
+.right h3 {
+  font-family: Georgia, serif;
+}
+
+/* Hide the most Quartz-looking parts on the front floor */
+.graph {
+  display: none !important;
+}
+
+/* Footer */
+footer {
+  color: var(--al-muted);
+  border-top: 1px solid var(--al-line);
+  margin-top: 3rem;
+  padding-top: 1rem;
+}
+
+/* Images */
+article img {
+  border-radius: 4px;
+}
+
+/* RTL improvement */
+[dir="rtl"],
+html[lang="he"] article,
+article:has(:lang(he)) {
+  direction: rtl;
+  text-align: right;
+}
+
+article p:has(a[href^="mailto"]),
+article p:has(a[href^="tel"]) {
+  direction: rtl;
+}
+
+/* Mobile */
+@media (max-width: 900px) {
+  .left,
+  .right {
+    display: none !important;
+  }
+
+  article {
+    max-width: 100%;
+  }
+
+  .center {
+    padding-inline: 1.2rem;
+  }
+}
+/* ================================
+   al-chemist.info custom header
+   ================================ */
+
+.left {
+  padding-top: 2rem;
+}
+
+.page-title {
+  text-align: center;
+  margin-bottom: 1.2rem;
+}
+
+.page-title a {
+  display: block;
+  width: 360px;
+  max-width: 90%;
+  height: 82px;
+  margin: 0 auto;
+  background-image: url("/static/alchemist-logo.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  font-size: 0 !important;
+}
+
+.page-title a::before {
+  content: none !important;
+}
+
+.page-title::after {
+  content: "Thoughts about the work and in its vicinity";
+  display: block;
+  margin-top: 0.35rem;
+  font-family: Georgia, serif;
+  font-style: italic;
+  font-size: 0.95rem;
+  color: var(--al-muted);
+}
+
+/* Hide Quartz footer branding */
+footer ul,
+footer p:has(a[href*="quartz"]) {
+  display: none !important;
+}
+
+/* Make page metadata quieter */
+.content-meta {
+  color: var(--al-muted);
+  font-size: 0.85rem;
+}
+
+/* More paper-like central column */
+.center {
+  background: var(--al-paper);
+  border-left: 1px solid var(--al-line);
+  border-right: 1px solid var(--al-line);
+  min-height: 100vh;
+}
+
+/* Reduce technical/wiki feeling */
+.explorer h2,
+.explorer .folder-title,
+.explorer .content {
+  font-family: Georgia, serif;
+}
+
+/* More elegant search */
+.search > .search-button {
+  border: 1px solid var(--al-line);
+  background: #fffdfa;
+  border-radius: 2px;
+}
+
+/* Mobile logo */
+@media (max-width: 900px) {
+  .page-title a {
+    width: 260px;
+    height: 62px;
+  }
+
+  .page-title::after {
+    font-size: 0.82rem;
+  }
+
+  .center {
+    border-left: none;
+    border-right: none;
+  }
+}
+/* ================================
+   Front floor layout: remove Quartz UI
+   ================================ */
+
+/* Hide left Quartz panel on desktop too */
+.left {
+  display: none !important;
+}
+
+/* Hide right Quartz panel */
+.right {
+  display: none !important;
+}
+
+/* Let the main page breathe */
+.page {
+  display: block !important;
+  max-width: 1040px;
+  margin: 0 auto;
+}
+
+/* Main content as a paper-like page */
+.center {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 2.5rem 3rem;
+  background: var(--al-paper);
+  border-left: 1px solid var(--al-line);
+  border-right: 1px solid var(--al-line);
+  min-height: 100vh;
+}
+
+/* Create a pseudo-header above the article */
+.center::before {
+  content: "";
+  display: block;
+  width: 430px;
+  max-width: 90%;
+  height: 95px;
+  margin: 0 auto 0.35rem auto;
+  background-image: url("/static/alchemist-logo.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
+.center::after {
+  content: "Thoughts about the work and in its vicinity";
+  display: block;
+  text-align: center;
+  margin-top: -1.2rem;
+  margin-bottom: 3rem;
+  font-family: Georgia, serif;
+  font-style: italic;
+  color: var(--al-muted);
+}
+
+/* But put the slogan visually before content */
+article {
+  margin-top: 2rem;
+}
+
+/* Remove leftover Quartz page chrome */
+.breadcrumb-container,
+.content-meta {
+  color: var(--al-muted);
+  font-size: 0.85rem;
+}
+
+/* Cleaner front-page image */
+article img {
+  max-width: 360px;
+  height: auto;
+}
+
+/* More elegant main title */
+article h1 {
+  margin-top: 1rem;
+  margin-bottom: 1.8rem;
+}
+
+/* Mobile */
+@media (max-width: 900px) {
+  .center {
+    max-width: 100%;
+    padding: 1.4rem;
+    border: none;
+  }
+
+  .center::before {
+    width: 300px;
+    height: 70px;
+  }
+
+  .center::after {
+    font-size: 0.85rem;
+    margin-bottom: 2rem;
+  }
+}
+/* ================================
+   Fix front floor width
+   ================================ */
+
+.page {
+  display: grid !important;
+  grid-template-columns: minmax(0, 1fr) !important;
+  max-width: 1180px !important;
+  width: min(1180px, calc(100vw - 4rem)) !important;
+  margin: 0 auto !important;
+}
+
+.center,
+.page > #quartz-body,
+.page > main,
+main {
+  width: 100% !important;
+  max-width: 960px !important;
+  margin: 0 auto !important;
+  padding: 2.5rem 4rem !important;
+  box-sizing: border-box !important;
+}
+
+article {
+  max-width: 760px !important;
+  margin: 2rem auto 0 auto !important;
+}
+
+article img {
+  max-width: 360px !important;
+}
+
+@media (max-width: 900px) {
+  .page {
+    width: 100% !important;
+  }
+
+  .center,
+  .page > #quartz-body,
+  .page > main,
+  main {
+    max-width: 100% !important;
+    padding: 1.4rem !important;
+  }
+
+  article {
+    max-width: 100% !important;
+  }
+}
+/* HARD FIX: break out of Quartz grid columns */
+
+.page {
+  display: block !important;
+  width: min(1100px, calc(100vw - 4rem)) !important;
+  max-width: 1100px !important;
+  margin: 0 auto !important;
+}
+
+.center {
+  display: block !important;
+  width: 100% !important;
+  max-width: 900px !important;
+  min-width: 0 !important;
+  margin: 0 auto !important;
+  padding: 2.5rem 4rem !important;
+  box-sizing: border-box !important;
+}
+
+article {
+  width: 100% !important;
+  max-width: 760px !important;
+  margin: 2rem auto 0 auto !important;
+}
+
+article h1 {
+  max-width: 100% !important;
+  white-space: normal !important;
+}
+
+/* Temporarily remove the misplaced slogan at the bottom */
+.center::after {
+  content: none !important;
+}
+
+.center::before {
+  width: 430px !important;
+  max-width: 90% !important;
+  height: 95px !important;
+  margin: 0 auto 2rem auto !important;
+}
+/* NUCLEAR LAYOUT RESET */
+
+body {
+  display: block !important;
+}
+
+#quartz-root,
+.page {
+  display: block !important;
+  width: 100% !important;
+  max-width: none !important;
+  margin: 0 !important;
+}
+
+.left,
+.right,
+.sidebar,
+.graph,
+.explorer {
+  display: none !important;
+}
+
+.center {
+  display: block !important;
+  width: 900px !important;
+  max-width: calc(100vw - 4rem) !important;
+  min-width: 0 !important;
+  margin: 0 auto !important;
+  padding: 2.5rem 4rem !important;
+  box-sizing: border-box !important;
+}
+
+article {
+  display: block !important;
+  width: 100% !important;
+  max-width: 760px !important;
+  margin: 2rem auto 0 auto !important;
+}
+/* ================================
+   Real site header
+   ================================ */
+
+.al-site-header {
+  width: min(1180px, calc(100vw - 4rem));
+  margin: 3rem auto 3rem auto;
+  text-align: center;
+}
+
+.al-logo-wrap {
+  margin-bottom: 1.35rem;
+}
+
+.al-logo img {
+  width: 520px;
+  max-width: 95%;
+  height: auto;
+}
+
+.al-tagline {
+  margin-top: 0.7rem;
+  font-family: Georgia, serif;
+  font-style: italic;
+  color: var(--al-muted);
+  font-size: 1.15rem;
+}
+
+.al-main-nav {
+  border-top: 1px solid var(--al-line);
+  border-bottom: 1px solid var(--al-line);
+  padding: 1rem 0;
+  display: flex;
+  justify-content: center;
+  gap: 2.2rem;
+  flex-wrap: wrap;
+  font-family: Georgia, serif;
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  letter-spacing: 0.045em;
+}
+
+.al-main-nav a {
+  color: var(--al-text);
+  text-decoration: none;
+}
+
+.al-main-nav a:hover {
+  color: var(--al-red);
+}
+
+.al-lang {
+  margin-left: 1rem;
+  color: var(--al-muted);
+}
+
+/* remove old pseudo-logo */
+.center::before,
+.center::after {
+  content: none !important;
+}
+/* REAL content width fix */
+
+article.popover-hint {
+  width: 100% !important;
+  max-width: 100% !important;
+  min-width: 0 !important;
+  margin: 0 auto !important;
+  padding: 0 !important;
+}
+
+article.popover-hint > * {
+  max-width: 760px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* header area wider */
+.al-site-header {
+  max-width: 1100px !important;
+}
+
+/* stronger page proportions */
+.center {
+  max-width: 1100px !important;
+  padding: 3rem 5rem !important;
+}
+/* FINAL article width override */
+
+.center article.popover-hint {
+  width: 100% !important;
+  max-width: 980px !important;
+}
+
+.center article.popover-hint > * {
+  max-width: 760px;
+  margin-left: auto;
+  margin-right: auto;
+}
+/* Hide Quartz metadata on front page */
+
+body[data-slug="index"] .page-title,
+body[data-slug="index"] .content-meta,
+body[data-slug="index"] .tag-list,
+body[data-slug="index"] .popover-hint > h1:first-child {
+  display: none !important;
+}
+
+/* Remove summarize block */
+body[data-slug="index"] .popover-hint .callout {
+  display: none !important;
+}
+/* Front page composition */
+
+body[data-slug="index"] article.popover-hint > * {
+  max-width: none;
+}
+
+.al-hero {
+  max-width: 760px;
+  margin: 0 auto 3rem auto;
+  text-align: center;
+}
+
+.al-hero h1 {
+  font-size: 3.4rem;
+  margin-bottom: 1.2rem;
+}
+
+.al-front-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.4rem;
+  margin: 2rem auto 0 auto;
+  max-width: 900px;
+}
+
+.al-front-card {
+  border: 1px solid var(--al-line);
+  background: #fffdfa;
+  padding: 1.6rem 1.8rem;
+  min-height: 210px;
+}
+
+.al-front-card h2 {
+  margin-top: 0;
+  font-size: 1.55rem;
+}
+
+.al-front-card p {
+  font-size: 1.05rem;
+  line-height: 1.65;
+}
+
+@media (max-width: 800px) {
+  .al-front-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .al-hero h1 {
+    font-size: 2.4rem;
+  }
+}
+.al-front-grid {
+  max-width: 1100px;
+  gap: 2rem;
+}
+
+.al-front-card {
+  padding: 2.2rem;
+  min-height: 260px;
+}
+
+.al-front-card h2 {
+  font-size: 1.9rem;
+}
+
+.al-front-card p {
+  font-size: 1.12rem;
+}
+
+.al-hero h1 {
+  font-size: 4.2rem;
+}
+/* Front page polish: scale and confidence */
+
+.al-site-header {
+  margin: 3.2rem auto 3.4rem auto;
+}
+
+.al-logo img {
+  width: 520px;
+  max-width: 95%;
+}
+
+.al-tagline {
+  font-size: 1.08rem;
+  margin-top: 0.55rem;
+}
+
+.al-main-nav {
+  margin-top: 1.4rem;
+  padding: 1rem 0;
+  gap: 2.1rem;
+  font-size: 0.92rem;
+}
+
+body[data-slug="index"] .center {
+  max-width: 1180px !important;
+  padding: 3.5rem 5.5rem !important;
+}
+
+.al-hero {
+  margin-top: 1.5rem;
+  margin-bottom: 3.8rem;
+}
+
+.al-hero h1 {
+  font-size: 4.1rem;
+  line-height: 1.02;
+  margin-bottom: 1.4rem;
+}
+
+.al-hero p {
+  font-size: 1.18rem;
+  line-height: 1.7;
+}
+
+.al-front-grid {
+  max-width: 1040px;
+  gap: 2rem;
+}
+
+.al-front-card {
+  padding: 2.2rem 2.3rem;
+  min-height: 255px;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.al-front-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(30, 27, 24, 0.08);
+}
+
+.al-front-card h2 {
+  font-size: 1.85rem;
+  line-height: 1.12;
+  margin-bottom: 1rem;
+}
+
+.al-front-card p {
+  font-size: 1.1rem;
+  line-height: 1.7;
+}
+
+.al-front-card a {
+  font-weight: 600;
+}
+/* Front page final scale override */
+
+html body[data-slug="index"] .center {
+  max-width: 1180px !important;
+  width: 1180px !important;
+  padding: 3.5rem 5.5rem !important;
+}
+
+html body[data-slug="index"] article.popover-hint {
+  max-width: 1040px !important;
+  width: 100% !important;
+}
+
+html body[data-slug="index"] article.popover-hint > * {
+  max-width: none !important;
+}
+
+html body[data-slug="index"] .al-front-grid {
+  max-width: 1040px !important;
+  grid-template-columns: repeat(2, minmax(360px, 1fr)) !important;
+  gap: 2rem !important;
+}
+
+html body[data-slug="index"] .al-front-card {
+  padding: 2.2rem 2.3rem !important;
+  min-height: 255px !important;
+}
+
+html body[data-slug="index"] .al-hero h1 {
+  font-size: 4.1rem !important;
+}
+
+@media (max-width: 900px) {
+  html body[data-slug="index"] .center {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 1.5rem !important;
+  }
+
+  html body[data-slug="index"] .al-front-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+/* Kill Quartz narrow grid */
+
+#quartz-root {
+  max-width: 100% !important;
+}
+
+.page {
+  display: flex !important;
+  justify-content: center !important;
+}
+
+.page > .center {
+  width: min(1400px, 94vw) !important;
+  max-width: min(1400px, 94vw) !important;
+  margin: 0 auto !important;
+  padding: 3rem 4rem !important;
+}
+
+/* remove phantom side columns */
+.left.sidebar,
+.right.sidebar {
+  display: none !important;
+}
+
+body[data-slug="index"] .al-front-grid {
+  grid-template-columns: repeat(2, 1fr) !important;
+}
+/* Actual Quartz body grid override */
+
+#quartz-body {
+  display: block !important;
+  width: min(1400px, 94vw) !important;
+  max-width: min(1400px, 94vw) !important;
+  margin: 0 auto !important;
+}
+
+#quartz-body > .center {
+  width: 100% !important;
+  max-width: 100% !important;
+  margin: 0 auto !important;
+}
+
+body[data-slug="index"] .center {
+  width: 100% !important;
+  max-width: 100% !important;
+}
+
+body[data-slug="index"] article.popover-hint {
+  width: 100% !important;
+  max-width: 1100px !important;
+}
+/* Quartz width hard override */
+
+body #quartz-body {
+  width: min(1600px, 94vw) !important;
+  max-width: min(1600px, 94vw) !important;
+
+  grid-template-columns: 0fr minmax(0, 1fr) 0fr !important;
+
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+body .center {
+  width: 100% !important;
+  max-width: 100% !important;
+}
+
+body article.popover-hint {
+  width: 100% !important;
+  max-width: 1200px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+html body div#quartz-root.page div#quartz-body.grid {
+  width: min(1600px, 94vw) !important;
+  max-width: min(1600px, 94vw) !important;
+}
+html body #quartz-root #quartz-body {
+  width: 1600px !important;
+  max-width: 1600px !important;
+}
