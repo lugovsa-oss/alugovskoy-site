@@ -1,0 +1,35 @@
+project:
+  type: book
+  output-dir: output
+
+book:
+  title: "תורת החומרים"
+  author: "Alex Lugovskoy"
+
+  chapters:
+    - index.md
+    - dedication.md
+    - preface.md
+    - chapters/chapter_01.md
+    - chapters/chapter_02.md
+    - chapters/chapter_03.md
+    - chapters/chapter_04.md
+    - chapters/chapter_05.md
+    - chapters/chapter_06.md
+    - chapters/chapter_07.md
+    - chapters/chapter_08.md
+
+lang: he
+dir: rtl
+format:
+  pdf:
+    pdf-engine: xelatex
+    latex-max-run: 2
+    toc: true
+    number-sections: true
+    mainfont: "Arial"
+    sansfont: "Arial"
+    monofont: "Courier New"
+
+execute:
+  freeze: auto
