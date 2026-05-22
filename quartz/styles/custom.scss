@@ -438,3 +438,50 @@ article:has(:lang(he)) {
   margin: 0 auto 1.5rem auto;
   display: block;
 }
+/* Hebrew pages */
+
+.he {
+  direction: rtl;
+  text-align: right;
+}
+
+/* Paragraphs, lists, blockquotes */
+
+.he p,
+.he li,
+.he ul,
+.he ol,
+.he blockquote {
+  direction: rtl;
+  text-align: right;
+}
+
+/* Headers */
+
+.he h1,
+.he h2,
+.he h3,
+.he h4,
+.he h5,
+.he h6 {
+  direction: rtl;
+  text-align: right;
+}
+
+/* Keep math and code left-to-right */
+
+.he .katex,
+.he mjx-container,
+.he code,
+.he pre {
+  direction: ltr;
+  unicode-bidi: isolate;
+}
+
+/* Inline Latin/math fragments */
+
+.he span[dir="ltr"],
+.he bdi[dir="ltr"] {
+  direction: ltr;
+  unicode-bidi: isolate;
+}
