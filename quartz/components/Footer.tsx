@@ -23,6 +23,15 @@ export default ((opts?: Options) => {
         <p>
   <a href="/license/">License</a> ·{" "}
   <a href="/contact/">Contact</a>
+  <p style={{
+  fontSize: "0.8rem",
+  opacity: 0.65,
+  marginTop: "1rem"
+}}>
+  Found a typo? Select text and press Ctrl/Cmd+Enter
+  <br />
+  מצאתם שגיאה? סמנו טקסט ולחצו Ctrl/Cmd+Enter
+</p>
 </p>
       </footer>
     )
