@@ -1,51 +1,51 @@
 (function () {
-  function getSelectedText() {
-    const text = window.getSelection().toString().trim();
-    return text.length > 500 ? text.slice(0, 500) + "…" : text;
+  const ENDPOINT = "/api/typo-report"
+
+  function getSelectionText() {
+    return window.getSelection().toString().trim()
   }
 
-  async function sendTypoReport(selectedText, comment) {
-    const response = await fetch("/api/typo-report", {
+  async function sendTypoReport(selectedText) {
+    const comment = window.prompt(
+      "Found a typo or error? Add a short comment:",
+      selectedText
+    )
+
+    if (comment === null) return
+
+    const payload = {
+      page_url: window.location.href,
+      selected_text: selectedText,
+      comment: comment,
+    }
+
+    const response = await fetch(ENDPOINT, {
       method: "POST",
       headers: {
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
       },
-      body: JSON.stringify({
-        page_url: window.location.href,
-        selected_text: selectedText,
-        comment: comment || ""
-      })
-    });
+      body: JSON.stringify(payload),
+    })
 
-    return response.json();
+    const text = await response.text()
+
+    if (!response.ok || !text.includes('"ok":true')) {
+      alert("Sorry, the report was not sent.")
+      console.error("Typo report failed:", text)
+      return
+    }
+
+    alert("Thank you! The report was sent.")
   }
 
-  document.addEventListener("keydown", async function (event) {
-    if (!(event.ctrlKey && event.key === "Enter")) return;
+  document.addEventListener("keydown", function (event) {
+    if ((event.ctrlKey || event.metaKey) && event.key === "Enter") {
+      const selectedText = getSelectionText()
 
-    const selectedText = getSelectedText();
+      if (!selectedText) return
 
-    if (!selectedText) {
-      alert("Сначала выделите текст с ошибкой.");
-      return;
+      event.preventDefault()
+      sendTypoReport(selectedText)
     }
-
-    const comment = prompt(
-      "Сообщить об ошибке в выделенном тексте:\n\n" + selectedText + "\n\nКомментарий:"
-    );
-
-    if (comment === null) return;
-
-    try {
-      const result = await sendTypoReport(selectedText, comment);
-
-      if (result.ok) {
-        alert("Спасибо! Сообщение отправлено.");
-      } else {
-        alert("Не удалось отправить сообщение: " + (result.error || "unknown error"));
-      }
-    } catch (err) {
-      alert("Ошибка отправки: " + err);
-    }
-  });
-})();
+  })
+})()
